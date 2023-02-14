@@ -25,14 +25,14 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 Cypress.on('uncaught:exception', (err, runnable) => {
-    return false
-});
+  return false
+})
 
 // to mute the requests in the Cypress browser log
-const origLog = Cypress.log;
+const origLog = Cypress.log
 Cypress.log = function (opts, ...other) {
-    if (opts.displayName === 'script' || opts.name === 'request') {
-        return;
-    }
-    return origLog(opts, ...other);
-};
+  if (opts.displayName === 'script' || opts.name === 'request') {
+    return
+  }
+  return origLog(opts, ...other)
+}
