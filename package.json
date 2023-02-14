@@ -1,0 +1,21 @@
+{
+  "name": "cypress-cucumber-ecommerce",
+  "version": "1.0.0",
+  "description": "Automation of ecommerce application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Paresh Parmar",
+  "license": "ISC",
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^15.1.3",
+    "cypress": "^12.5.1"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true,
+    "stepDefinitions": "cypress/e2e/**/*.{js,ts}",
+    "filterSpecs": true,
+    "omiFiltered": true
+  }
+}
