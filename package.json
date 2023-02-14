@@ -19,5 +19,8 @@
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": false,
     "stepDefinitions": "cypress/e2e/**/*.{js,ts}"
+  },
+  "dependencies": {
+    "cypress-real-events": "^1.7.6"
   }
 }
