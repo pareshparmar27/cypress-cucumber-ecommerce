@@ -17,9 +17,7 @@
     "typescript": "^4.9.5"
   },
   "cypress-cucumber-preprocessor": {
-    "nonGlobalStepDefinitions": true,
-    "stepDefinitions": "cypress/e2e/**/*.{js,ts}",
-    "filterSpecs": true,
-    "omiFiltered": true
+    "nonGlobalStepDefinitions": false,
+    "stepDefinitions": "cypress/e2e/**/*.{js,ts}"
   }
 }
