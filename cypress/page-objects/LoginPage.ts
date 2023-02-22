@@ -7,6 +7,7 @@ class LoginPage {
   readonly loginButton = '[title="Login"]'
   readonly alertError = '.alert-error'
   readonly continue = '[title="Continue"]'
+  readonly radioButtonList = '[type="radio"]'
 
   /**
    * login to the application with user credentails
