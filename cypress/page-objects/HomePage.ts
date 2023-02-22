@@ -48,29 +48,6 @@ class HomePage {
   }
 
   /**
-   * Get the list of all products of the selected categories
-   * @returns A list of all products
-   */
-  //   getProducts() {
-  //     let list: Product[] = []
-  //     const products = cy.get(this.productList)
-  //     const count = await products.count()
-  //     for (let i = 0; i < count; i++) {
-  //       let product: Product = {
-  //         name: await products.nth(i).locator(this.name).textContent(),
-  //         image: products.nth(i).locator(this.image),
-  //         view: products.nth(i).locator(this.view),
-  //         writeReview: products.nth(i).locator(this.writeReview),
-  //         price: await products.nth(i).locator(this.price).first().textContent(),
-  //         outOfStock: products.nth(i).locator(this.outOfStock),
-  //         addToCart: products.nth(i).locator(this.addToCart),
-  //       }
-  //       list.push(product)
-  //     }
-  //     return list
-  //   }
-
-  /**
    * Get the locator as per given name
    * @param name A name of the locator
    * @returns A locator as a string
