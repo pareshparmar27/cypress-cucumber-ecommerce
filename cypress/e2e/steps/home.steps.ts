@@ -1,4 +1,5 @@
 import { Then, When } from '@badeball/cypress-cucumber-preprocessor'
+import { checkSortedProductsDetail } from '../../operations/product.operations'
 import { guestPage } from '../../page-objects/GuestPage'
 import { homePage } from '../../page-objects/HomePage'
 import { loginPage } from '../../page-objects/LoginPage'
@@ -31,4 +32,8 @@ Then('a user can order a product with guest account', () => {
   guestPage.addDetails()
   orderPage.doClick('Confirm Order')
   cy.contains('Your Order Has Been Processed!').should('be.visible')
+})
+
+Then('a user gets list of products sorted by {string}', (option: string) => {
+  checkSortedProductsDetail(option)
 })
