@@ -1,5 +1,5 @@
 import { Then, When } from '@badeball/cypress-cucumber-preprocessor'
-import { sortBy } from '../../operations/product.operations'
+import { checkSortedProductsDetail } from '../../operations/product.operations'
 import { guestPage } from '../../page-objects/GuestPage'
 import { homePage } from '../../page-objects/HomePage'
 import { loginPage } from '../../page-objects/LoginPage'
@@ -35,5 +35,5 @@ Then('a user can order a product with guest account', () => {
 })
 
 Then('a user gets list of products sorted by {string}', (option: string) => {
-  sortBy(option)
+  checkSortedProductsDetail(option)
 })

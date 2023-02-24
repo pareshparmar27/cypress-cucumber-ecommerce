@@ -11,5 +11,17 @@ Feature: Product Test
             | option           | category              | sub-category |
             | Price Low > High | Apparel & accessories | Shoes        |
             | Price High > Low | Apparel & accessories | Shoes        |
-# | Name A - Z       | Apparel & accessories | Shoes        |
-# | Name Z - A       | Apparel & accessories | Shoes        |
+            | Name A - Z       | Apparel & accessories | Shoes        |
+            | Name Z - A       | Apparel & accessories | Shoes        |
+            | Price Low > High | Makeup                | Eyes         |
+            | Price High > Low | Makeup                | Eyes         |
+            | Name A - Z       | Makeup                | Eyes         |
+            | Name Z - A       | Makeup                | Eyes         |
+            | Price Low > High | Men                   | Skincare     |
+            | Price High > Low | Men                   | Skincare     |
+            | Name A - Z       | Men                   | Skincare     |
+            | Name Z - A       | Men                   | Skincare     |
+            | Price Low > High | Hair Care             | Shampoo      |
+            | Price High > Low | Hair Care             | Shampoo      |
+            | Name A - Z       | Hair Care             | Shampoo      |
+            | Name Z - A       | Hair Care             | Shampoo      |

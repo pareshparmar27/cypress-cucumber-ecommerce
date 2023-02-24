@@ -1,43 +1,70 @@
 import { productPage } from '../page-objects/ProductPage'
 
-export function sortBy(option: string) {
-  productPage.sortBy(option)
-  checkProductsDetail(option)
+/**
+ * Checks products details in sorted order
+ * @param option sort by option
+ */
+export function checkSortedProductsDetail(option: string) {
+  sortBy(option)
 }
 
-function checkProductsDetail(option: string) {
+/**
+ * perform sorting on the products list
+ * @param option sort by option
+ */
+function sortBy(option: string) {
   switch (option) {
     case 'Price Low > High':
-      checkProductPriceOrder('ASC')
+      checkProductPriceOrder(option, 'ASC')
       break
     case 'Price High > Low':
-      checkProductPriceOrder('DESC')
+      checkProductPriceOrder(option, 'DESC')
       break
     case 'Name A - Z':
-      checkProductNameOrder('ASC')
+      checkProductNameOrder(option, 'ASC')
       break
     case 'Name Z - A':
-      checkProductNameOrder('DESC')
+      checkProductNameOrder(option, 'DESC')
       break
     default:
       throw new Error('Invalid sorting option applied!!!')
   }
 }
 
-function checkProductPriceOrder(order: string) {
-  productPage.getProductsPrice().then((prices) => {
-    expect(prices).to.have.ordered.members(performNumberSort(order, prices))
+/**
+ * Checks products price in sorted order
+ * @param option sort by option
+ * @param order sort order
+ */
+function checkProductPriceOrder(option: string, order: string) {
+  productPage.getProductsPrice().then((currentList) => {
+    productPage.sortBy(option)
+    productPage.getProductsPrice().then((actualList) => {
+      expect(actualList).to.have.ordered.members(performNumberSort(order, currentList))
+    })
   })
 }
 
-function checkProductNameOrder(order: string) {
-  productPage.getProductsName().then((names) => {
-    cy.log('Actual', JSON.stringify(names))
-    cy.log('Expected', JSON.stringify(performStringSort(order, names)))
-    expect(names).to.equal(performStringSort(order, names))
+/**
+ * Checks products name in sorted order
+ * @param option sort by option
+ * @param order sort order
+ */
+function checkProductNameOrder(option: string, order: string) {
+  productPage.getProductsName().then((currentList) => {
+    productPage.sortBy(option)
+    productPage.getProductsName().then((actualList) => {
+      expect(actualList).to.have.ordered.members(performStringSort(order, currentList))
+    })
   })
 }
 
+/**
+ * perofrm number sort
+ * @param order sort order
+ * @param list A list to be sorted
+ * @returns
+ */
 function performNumberSort(order: string, list: number[]) {
   switch (order) {
     case 'ASC':
@@ -51,11 +78,17 @@ function performNumberSort(order: string, list: number[]) {
   }
 }
 
+/**
+ * perofrm string sort
+ * @param order sort order
+ * @param list A list to be sorted
+ * @returns
+ */
 function performStringSort(order: string, list: string[]) {
   switch (order) {
     case 'ASC':
       return list.sort()
     case 'DESC':
-      return list.reverse()
+      return list.sort().reverse()
   }
 }
