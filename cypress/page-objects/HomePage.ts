@@ -13,7 +13,7 @@ class HomePage {
   readonly checkout = '[data-id="menu_checkout"]'
   readonly returningCustomer = '.returncustomer'
   readonly currency = '.language'
-  readonly currencyDropdown = '.dropdown-menu.currency'
+  readonly currencyDropdown = '.currency'
   readonly name = '.prdocutname'
   readonly image = '.thumbnail > a > img'
   readonly view = '.details'
@@ -45,6 +45,14 @@ class HomePage {
    */
   getSubCategoryHeading() {
     return cy.get(this.heading)
+  }
+
+  /**
+   * Select a currency
+   * @param currency a name of currency
+   */
+  selectCurrency(currency: string) {
+    cy.get(this.currency).click().find(this.currencyDropdown).contains(currency).click()
   }
 
   /**
