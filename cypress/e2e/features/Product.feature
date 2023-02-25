@@ -3,6 +3,7 @@ Feature: Product Test
     Background: Launch an application
         Given a user launches an application
 
+    @product @regression
     Scenario Outline: Sort <sub-category> by <option> under <category> category
         When  a user searches for product "<sub-category>" under "<category>"
         Then  a user gets list of desired "<sub-category>" product
