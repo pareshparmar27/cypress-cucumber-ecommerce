@@ -15,3 +15,12 @@ Feature: Home Test
             | Men                   | Body & Shower |
             | Hair Care             | Shampoo       |
             | Books                 | Audio CD      |
+
+    Scenario Outline: Show the products price in <currency> currency
+        When a user selects a currency as "<currency>"
+        Then a user see the products price in "<currency>"
+        Examples:
+            | currency       |
+            | Euro           |
+            | US Dollar      |
+            | Pound Sterling |

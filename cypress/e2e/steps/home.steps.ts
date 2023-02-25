@@ -1,4 +1,5 @@
 import { Then, When } from '@badeball/cypress-cucumber-preprocessor'
+import { checkProductsCurrency } from '../../operations/home.operations'
 import { checkSortedProductsDetail } from '../../operations/product.operations'
 import { guestPage } from '../../page-objects/GuestPage'
 import { homePage } from '../../page-objects/HomePage'
@@ -36,4 +37,12 @@ Then('a user can order a product with guest account', () => {
 
 Then('a user gets list of products sorted by {string}', (option: string) => {
   checkSortedProductsDetail(option)
+})
+
+When('a user selects a currency as {string}', (currency: string) => {
+  homePage.selectCurrency(currency)
+})
+
+Then('a user see the products price in {string}', (currency: string) => {
+  checkProductsCurrency(currency)
 })
