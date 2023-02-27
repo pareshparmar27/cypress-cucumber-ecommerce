@@ -17,13 +17,13 @@ on:
         type: choice
         description: Select Test Tag
         options:
-          - regression
           - login
           - home
           - product
           - checkout
           - registered-account
           - guest-account
+          - regression
       test-title:
         type: string
         description: Enter Title
@@ -38,7 +38,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        containers: [1]
+        containers: [1, 2, 3, 4]
     steps:
       - uses: actions/checkout@v3
       - name: save git values
