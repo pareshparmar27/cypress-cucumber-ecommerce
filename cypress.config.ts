@@ -31,6 +31,7 @@ module.exports = defineConfig({
   screenshotOnRunFailure: false,
   watchForFileChanges: false,
   chromeWebSecurity: false,
+  projectId: 'nwwyxo',
   e2e: {
     specPattern: '**/*.feature',
     setupNodeEvents,
