@@ -29,7 +29,7 @@ on:
         description: Enter Title
 
 jobs:
-  Cypress-Test:
+  cypress-test:
     runs-on: ubuntu-latest
     container:
       image: cypress/browsers:node18.12.0-chrome103-ff107
@@ -39,7 +39,7 @@ jobs:
       fail-fast: false
       matrix:
         containers: [1, 2, 3, 4]
-     steps:
+    steps:
       - uses: actions/checkout@v3
       - name: save git values
         run: |
@@ -52,14 +52,11 @@ jobs:
           echo COMMIT_INFO_REMOTE=$(git config --get remote.origin.url) >> $GITHUB_ENV
           rm -rf .git
       - run: npm install
-      - name: "Tests"
+      - name: 'Tests'
         uses: cypress-io/github-action@4.2.1
         with:
           install: false
           command: npx cypress run -e tags="@${{ github.event.inputs.test-tag }}" --headed -browser ${{ github.event.inputs.browser }} --record --parallel
           working-directory: .
-          group: "Tests"
+          group: 'Tests'
           config: videoFolder=/tmp/cypress-videos
-
-
-      
