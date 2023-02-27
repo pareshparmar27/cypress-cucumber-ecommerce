@@ -4,11 +4,11 @@
   "description": "Automation of ecommerce application",
   "main": "index.js",
   "scripts": {
-    "test": "npx cypress run -e TAGS=\"@regression\" --headed --browser chrome",
-    "login": "npx cypress run -e TAGS=\"@login\" --headed --browser chrome",
-    "home": "npx cypress run -e TAGS=\"@home\" --headed --browser chrome",
-    "product": "npx cypress run -e TAGS=\"@product\" --headed --browser chrome",
-    "checkout": "npx cypress run -e TAGS=\"@checkout\" --headed --browser chrome"
+    "test": "npx cypress run -e tags=\"@regression\" --headed --browser chrome",
+    "login": "npx cypress run -e tags=\"@login\" --headed --browser chrome",
+    "home": "npx cypress run -e tags=\"@home\" --headed --browser chrome",
+    "product": "npx cypress run -e tags=\"@product\" --headed --browser chrome",
+    "checkout": "npx cypress run -e tags=\"@checkout\" --headed --browser chrome"
   },
   "author": "Paresh Parmar",
   "license": "ISC",
