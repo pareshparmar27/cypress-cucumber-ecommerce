@@ -21,3 +21,19 @@
 3. Choose a browser (eg. Chrome)
 4. Click on "Start E2E Testing in Chrome"
 5. Select any feature file to run
+
+### Run test (github workflow)
+
+1. Go to cypress-cucumber-ecommerce repository
+2. Go to Actions
+3. Click on "On Demand Test"
+4. Click on "Run workflow"
+5. Enter following details
+   5.1 Select "main" branch
+   5.2 Select any browser (eg. chrome)
+   5.3 Select any tag (eg. regression)
+   5.4 Enter title
+6. Click on "Run workflow" green button
+   ![Initiate test from github](/images/github_trigger_test.jpg)
+7. Check test results in cypress dashboard
+   ![Cypress test results](/images/cypress_recorded_testresults.jpg)
