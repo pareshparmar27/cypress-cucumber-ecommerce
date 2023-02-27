@@ -53,7 +53,7 @@ jobs:
           rm -rf .git
       - run: npm install
       - name: 'Tests'
-        uses: cypress-io/github-action@4.2.1
+        uses: cypress-io/github-action@v4.2.1
         with:
           install: false
           command: npx cypress run -e tags="@${{ github.event.inputs.test-tag }}" --headed -browser ${{ github.event.inputs.browser }} --record --parallel
